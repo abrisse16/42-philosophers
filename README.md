@@ -26,7 +26,19 @@ In this project, we learned the basics of threading a process, gaining hands-on 
 
 Drawing from the classic computer science paradigm, the "[Dining Philosopher’s Problem](https://en.wikipedia.org/wiki/Dining_philosophers_problem)", this endeavor served as a vivid illustration of concurrency and race conditions, emphasizing the essential nature of grasping synchronization challenges and the techniques to resolve them.
 
+
+### The Dining Philosopher's Problem
+
 In this problem, a pre-determined number of philosophers come together to dine at a shared table. Each philosopher has their own designated place, with only one fork set beside each of their plates. These philosophers follow a routine cycle of eating, thinking, and sleeping. To eat their dish, which is a type of spaghetti, each philosopher requires two forks. However, acquiring these forks is the crux of the challenge. A philosopoher can only begin to eat when they successfully pick up both their left and right forks, which are only available when their neighboring philosophers are thinking and not eating. Once their meal is complete, they place down both forks and resume thinking.
+
+<b>A philosopher routine</b>
+- 🍴 Grab their left and right forks, if they are available.
+- 🍝 Eat their spaghetti during `x` milliseconds.
+- 🍴 Release their left and right forks.
+- 🌙 Sleep during `x` milliseconds.
+- 🧠 Think until their next meal or until they die.
+
+<br>
 
 The intricacy of this problem arises form ensuring that all philosophers can alternate between thinking and eating without any of them starving to death, especially given the constraint that a philosopher cannot predict when their peers might want to eat or think. The real dilemma here isn't just the act of eating but the coordination and synchronization required to keep all philosophers alive and content.
 
@@ -40,7 +52,7 @@ git clone https://github.com/abrisse16/42-philosophers.git path/to/repository
 
 In your local repository, run `make`
 
-To run `philosophers` type :
+To run `philosophers`, use the following command :
 
 ```sh
 ./philo <number_of_philosophers> <time_to_die> <time_to_eat> <time_to_sleep> [number_of_times_each_philosopher_must_eat]
